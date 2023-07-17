@@ -1,4 +1,4 @@
 // A script that deletes all documents with a field attribute in a collection
-db.school.remove(
+db.school.deleteMany(
 {"name": "Holberton school"}
 )
