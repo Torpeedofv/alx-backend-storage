@@ -1,16 +1,22 @@
-Toggle navigation
+
 Curriculum
 Short Specializations
-Average: 126.17%
+Average: 105.32%
+You just released the advanced tasks of this project. Have fun!
 0x00. MySQL advanced
 Back-end
 SQL
 MySQL
  By: Guillaume Plessis, Senior Cloud & System Engineer at WeWork and Guillaume, CTO at Holberton school
  Weight: 1
- Project will start Aug 9, 2023 6:00 AM, must end by Aug 11, 2023 6:00 AM
- Checker was released at Aug 9, 2023 6:00 PM
+ Project over - took place from Aug 9, 2023 6:00 AM to Aug 11, 2023 6:00 AM
  An auto review will be launched at the deadline
+In a nutshell…
+Auto QA review: 15.0/53 mandatory & 0.0/8 optional
+Altogether:  28.3%
+Mandatory: 28.3%
+Optional: 0.0%
+Calculation:  28.3% + (28.3% * 0.0%)  == 28.3%
 Concepts
 For this project, we expect you to look at this concept:
 
@@ -92,6 +98,7 @@ $
 Tasks
 0. We are all unique!
 mandatory
+Score: 100.0% (Checks completed: 100.0%)
 Write a SQL script that creates a table users following these requirements:
 
 With these attributes:
@@ -128,9 +135,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 0-uniq_users.sql
-   
+    
 1. In and not out
 mandatory
+Score: 100.0% (Checks completed: 100.0%)
 Write a SQL script that creates a table users following these requirements:
 
 With these attributes:
@@ -170,9 +178,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 1-country_users.sql
-   
+    
 2. Best band ever!
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that ranks country origins of bands, ordered by the number of (non-unique) fans
 
 Requirements:
@@ -203,9 +212,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 2-fans.sql
-   
+     
 3. Old school band
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that lists all bands with Glam rock as their main style, ranked by their longevity
 
 Requirements:
@@ -233,9 +243,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 3-glam_rock.sql
-   
+     
 4. Buy buy buy
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a trigger that decreases the quantity of an item after adding a new order.
 
 Quantity in the table items can be negative.
@@ -304,9 +315,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 4-store.sql
-   
+     
 5. Email validation to sent
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a trigger that resets the attribute valid_email only when the email has been changed.
 
 Context: Nothing related to MySQL, but perfect for user email validation - distribute the logic to the database itself!
@@ -376,9 +388,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 5-valid_email.sql
-   
+     
 6. Add bonus
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a stored procedure AddBonus that adds a new correction for a student.
 
 Requirements:
@@ -499,9 +512,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 6-bonus.sql
-   
+     
 7. Average score
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a stored procedure ComputeAverageScoreForUser that computes and store the average score for a student. Note: An average score can be a decimal
 
 Requirements:
@@ -598,9 +612,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 7-average_score.sql
-   
+     
 8. Optimize simple search
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates an index idx_name_first on the table names and the first letter of name.
 
 Requirements:
@@ -654,9 +669,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 8-index_my_names.sql
-   
+     
 9. Optimize search and score
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates an index idx_name_first_score on the table names and the first letter of name and the score.
 
 Requirements:
@@ -709,9 +725,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 9-index_name_score.sql
-   
+     
 10. Safe divide
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a function SafeDiv that divides (and returns) the first by the second number or returns 0 if the second number is equal to 0.
 
 Requirements:
@@ -768,9 +785,10 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 10-div.sql
-   
+     
 11. No table for a meeting
 mandatory
+Score: 0.0% (Checks completed: 0.0%)
 Write a SQL script that creates a view need_meeting that lists all students that have a score under 80 (strict) and no last_meeting or more than 1 month.
 
 Requirements:
@@ -873,5 +891,214 @@ Repo:
 GitHub repository: alx-backend-storage
 Directory: 0x00-MySQL_Advanced
 File: 11-need_meeting.sql
-   
+     
+12. Average weighted score
+#advanced
+Score: 0.0% (Checks completed: 0.0%)
+Write a SQL script that creates a stored procedure ComputeAverageWeightedScoreForUser that computes and store the average weighted score for a student.
+
+Requirements:
+
+Procedure ComputeAverageScoreForUser is taking 1 input:
+user_id, a users.id value (you can assume user_id is linked to an existing users)
+Tips:
+
+Calculate-Weighted-Average
+bob@dylan:~$ cat 100-init.sql
+-- Initial
+DROP TABLE IF EXISTS corrections;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+
+CREATE TABLE IF NOT EXISTS users (
+    id int not null AUTO_INCREMENT,
+    name varchar(255) not null,
+    average_score float default 0,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+    id int not null AUTO_INCREMENT,
+    name varchar(255) not null,
+    weight int default 1,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS corrections (
+    user_id int not null,
+    project_id int not null,
+    score float default 0,
+    KEY `user_id` (`user_id`),
+    KEY `project_id` (`project_id`),
+    CONSTRAINT fk_user_id FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+    CONSTRAINT fk_project_id FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
+);
+
+INSERT INTO users (name) VALUES ("Bob");
+SET @user_bob = LAST_INSERT_ID();
+
+INSERT INTO users (name) VALUES ("Jeanne");
+SET @user_jeanne = LAST_INSERT_ID();
+
+INSERT INTO projects (name, weight) VALUES ("C is fun", 1);
+SET @project_c = LAST_INSERT_ID();
+
+INSERT INTO projects (name, weight) VALUES ("Python is cool", 2);
+SET @project_py = LAST_INSERT_ID();
+
+
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_bob, @project_c, 80);
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_bob, @project_py, 96);
+
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_jeanne, @project_c, 91);
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_jeanne, @project_py, 73);
+
+bob@dylan:~$ 
+bob@dylan:~$ cat 100-init.sql | mysql -uroot -p holberton 
+Enter password: 
+bob@dylan:~$ 
+bob@dylan:~$ cat 100-average_weighted_score.sql | mysql -uroot -p holberton 
+Enter password: 
+bob@dylan:~$ 
+bob@dylan:~$ cat 100-main.sql
+-- Show and compute average weighted score
+SELECT * FROM users;
+SELECT * FROM projects;
+SELECT * FROM corrections;
+
+CALL ComputeAverageWeightedScoreForUser((SELECT id FROM users WHERE name = "Jeanne"));
+
+SELECT "--";
+SELECT * FROM users;
+
+bob@dylan:~$ 
+bob@dylan:~$ cat 100-main.sql | mysql -uroot -p holberton 
+Enter password: 
+id  name    average_score
+1   Bob 0
+2   Jeanne  82
+id  name    weight
+1   C is fun    1
+2   Python is cool  2
+user_id project_id  score
+1   1   80
+1   2   96
+2   1   91
+2   2   73
+--
+--
+id  name    average_score
+1   Bob 0
+2   Jeanne  79
+bob@dylan:~$ 
+Repo:
+
+GitHub repository: alx-backend-storage
+Directory: 0x00-MySQL_Advanced
+File: 100-average_weighted_score.sql
+     
+13. Average weighted score for all!
+#advanced
+Score: 0.0% (Checks completed: 0.0%)
+Write a SQL script that creates a stored procedure ComputeAverageWeightedScoreForUsers that computes and store the average weighted score for all students.
+
+Requirements:
+
+Procedure ComputeAverageWeightedScoreForUsers is not taking any input.
+Tips:
+
+Calculate-Weighted-Average
+bob@dylan:~$ cat 101-init.sql
+-- Initial
+DROP TABLE IF EXISTS corrections;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS projects;
+
+CREATE TABLE IF NOT EXISTS users (
+    id int not null AUTO_INCREMENT,
+    name varchar(255) not null,
+    average_score float default 0,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+    id int not null AUTO_INCREMENT,
+    name varchar(255) not null,
+    weight int default 1,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS corrections (
+    user_id int not null,
+    project_id int not null,
+    score float default 0,
+    KEY `user_id` (`user_id`),
+    KEY `project_id` (`project_id`),
+    CONSTRAINT fk_user_id FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+    CONSTRAINT fk_project_id FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
+);
+
+INSERT INTO users (name) VALUES ("Bob");
+SET @user_bob = LAST_INSERT_ID();
+
+INSERT INTO users (name) VALUES ("Jeanne");
+SET @user_jeanne = LAST_INSERT_ID();
+
+INSERT INTO projects (name, weight) VALUES ("C is fun", 1);
+SET @project_c = LAST_INSERT_ID();
+
+INSERT INTO projects (name, weight) VALUES ("Python is cool", 2);
+SET @project_py = LAST_INSERT_ID();
+
+
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_bob, @project_c, 80);
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_bob, @project_py, 96);
+
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_jeanne, @project_c, 91);
+INSERT INTO corrections (user_id, project_id, score) VALUES (@user_jeanne, @project_py, 73);
+
+bob@dylan:~$ 
+bob@dylan:~$ cat 101-init.sql | mysql -uroot -p holberton 
+Enter password: 
+bob@dylan:~$ 
+bob@dylan:~$ cat 101-average_weighted_score.sql | mysql -uroot -p holberton 
+Enter password: 
+bob@dylan:~$ 
+bob@dylan:~$ cat 101-main.sql
+-- Show and compute average weighted score
+SELECT * FROM users;
+SELECT * FROM projects;
+SELECT * FROM corrections;
+
+CALL ComputeAverageWeightedScoreForUsers();
+
+SELECT "--";
+SELECT * FROM users;
+
+bob@dylan:~$ 
+bob@dylan:~$ cat 101-main.sql | mysql -uroot -p holberton 
+Enter password: 
+id  name    average_score
+1   Bob 0
+2   Jeanne  0
+id  name    weight
+1   C is fun    1
+2   Python is cool  2
+user_id project_id  score
+1   1   80
+1   2   96
+2   1   91
+2   2   73
+--
+--
+id  name    average_score
+1   Bob 90.6667
+2   Jeanne  79
+bob@dylan:~$ 
+Repo:
+
+GitHub repository: alx-backend-storage
+Directory: 0x00-MySQL_Advanced
+File: 101-average_weighted_score.sql
+     
 Copyright © 2023 ALX, All rights reserved.
