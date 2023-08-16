@@ -19,12 +19,15 @@ class Cache:
 
     def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float]:
         data = self.__redis.get(key)
-        if data is not None and fn is not None:
-            data = fn(data)
+        if data is not None:
+            if fn is not None:
+                data = fn(data)
+            elif isinstance(data, bytes):
+                data = data.decode("utf-8")
         return data
 
     def get_str(self, key: str) -> Union[str, None]:
-        return key.decode('utf-8', 'strict')
+        return self.get(key, fn=str)
 
     def get_int(self, key: int) -> Union[int, None]:
         return self.get(key, fn=int)
