@@ -16,3 +16,15 @@ class Cache:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float]:
+        data = self.__redis.get(key)
+        if data is not None and fn is not None:
+            data = fn(data)
+        return data
+
+    def get_str(self, key: str) -> Union[str, None]:
+        return self.get(key, fn=str)
+
+    def get_int(self, key: int) -> Union[int, None]:
+        return self.get(key, fn=int)
