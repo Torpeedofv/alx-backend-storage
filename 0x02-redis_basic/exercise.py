@@ -5,7 +5,20 @@ writes strings to redis"""
 import redis
 import uuid
 from typing import Union, Callable
+from functools import wraps
 
+
+def count_calls(fn: callable) -> Callable:
+    key = fn.__qualname__
+
+
+    @wraps(fn)
+    def wrapper(self, *args, **kwargs):
+        self._redis.incr(key)
+        return fn(self, *args, **kwargs)
+
+
+    return wrapper
 
 class Cache:
     def __init__(self):
