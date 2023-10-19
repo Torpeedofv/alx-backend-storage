@@ -18,6 +18,7 @@ def counter(method: Callable) -> Callable:
             return cached.decode('utf-8')
         response = method(url)
         redis_client.setex(url, 10, response)
+        redis_client.expire(url, 10)
         return response
     return wrapper
 
@@ -31,3 +32,4 @@ def get_page(url: str) -> str:
 
 if __name__ == "__main__":
     get_page('http://slowwly.robertomurray.co.uk')
+    
