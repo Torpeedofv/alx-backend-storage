@@ -8,7 +8,7 @@ from typing import Union, Callable
 from functools import wraps
 
 
-def count_calls(fn: callable) -> Callable:
+def count_calls(fn: Callable) -> Callable:
     key = fn.__qualname__
 
 
@@ -25,6 +25,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
