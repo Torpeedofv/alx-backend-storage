@@ -39,14 +39,13 @@ def call_history(method: Callable) -> Callable:
 def count_calls(method: Callable) -> Callable:
     method_key = method.__qualname__
 
-
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         self._redis.incr(method_key)
         return method(self, *args, **kwargs)
 
-
     return wrapper
+
 
 class Cache:
     def __init__(self):
@@ -60,7 +59,8 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Callable = None) ->
+    Union[str, bytes, int, float]:
         data = self._redis.get(key)
         if data is None:
             return None
