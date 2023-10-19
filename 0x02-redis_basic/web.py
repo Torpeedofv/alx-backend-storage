@@ -16,10 +16,8 @@ def counter(method: Callable) -> Callable:
         cached = redis_client.get(f'{url}')
         if cached:
             return cached.decode('utf-8')
-        response = method(url)
-        redis_client.setex(url, 10, response)
-        redis_client.expire(url, 10)
-        return response
+        redis_client.setex(f'{url}', 10, method(url))
+        return method(*args, **kwargs)
     return wrapper
 
 
