@@ -31,16 +31,16 @@ class Cache:
         return key
 
     def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float]:
-        data = self.__redis.get(key)
-        if data is not None:
-            if fn is not None:
-                data = fn(data)
-            elif isinstance(data, bytes):
-                data = data.decode("utf-8")
-        return data
+        data = self._redis.get(key)
+        if data is None:
+            return None
+        if fn is not None:
+            return fn(data)
+        else:
+            return data
 
     def get_str(self, key: str) -> Union[str, None]:
-        return self.get(key, fn=str)
+        return self.get(key, fn=lambda d: d.decode("utf-8"))
 
     def get_int(self, key: int) -> Union[int, None]:
         return self.get(key, fn=int)
